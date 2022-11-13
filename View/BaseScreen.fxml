@@ -13,7 +13,7 @@
          <children>
             <HBox style="-fx-background-color: rgb(219,155,107);">
                <children>
-                  <Button fx:id="ToggleSideBar" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: rgba (0,0,0,0);" text="≡">
+                  <Button fx:id="ToggleSideBar" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="≡">
                      <font>
                         <Font size="24.0" />
                      </font>
