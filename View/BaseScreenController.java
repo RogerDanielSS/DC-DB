@@ -24,7 +24,7 @@ public class BaseScreenController implements Initializable {
   private void addCard() {
     try {
 
-      AnchorPane card = (AnchorPane) FXMLLoader.load(getClass().getResource("/Components/Cards/Delivery.fxml"));
+      AnchorPane card = (AnchorPane) FXMLLoader.load(getClass().getResource("/View/Components/Cards/Delivery.fxml"));
       Cards.getChildren().add(card);
       Cards.setPrefHeight(Cards.getPrefHeight() + 150);
 
