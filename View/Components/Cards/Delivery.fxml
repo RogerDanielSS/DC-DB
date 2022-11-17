@@ -6,14 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="320.0" style="-fx-background-color: rgba(0,0,0,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="320.0" style="-fx-background-color: rgba(250,0,0,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.Components.Cards.DeliveryController">
    <children>
-      <VBox layoutX="110.0" layoutY="-50.0" prefHeight="150.0" prefWidth="320.0" style="-fx-background-radius: 8px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="110.0" layoutY="-50.0" prefHeight="150.0" prefWidth="320.0" style="-fx-background-radius: 8px; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <Label fx:id="Material" text="&gt;&gt;material&lt;&lt;">
+                  <Label fx:id="material" text="&gt;&gt;material&lt;&lt;">
                      <font>
                         <Font size="24.0" />
                      </font>

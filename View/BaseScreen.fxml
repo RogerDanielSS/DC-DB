@@ -7,30 +7,35 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.BaseScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.BaseScreenController">
    <children>
-      <VBox layoutX="219.0" layoutY="252.0" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgb(220,220,220);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="219.0" layoutY="252.0" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgb(200,200,200);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox style="-fx-background-color: rgb(219,155,107);">
                <children>
-                  <Button fx:id="ToggleSideBar" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="≡">
+                  <Button fx:id="ToggleSideBar" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
                      <font>
                         <Font size="24.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/Images/DC.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/Images/Disk%20caçamba%20por%20extenso.png" />
-                     </image>
-                  </ImageView>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <ScrollPane prefHeight="705.0" prefWidth="360.0">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="705.0" prefWidth="360.0" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="Cards" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="0.0" prefWidth="360.0" />
+                  <VBox fx:id="Cards" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="0.0" prefWidth="360.0" spacing="15.0">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></VBox>
                </content>
             </ScrollPane>
          </children>
