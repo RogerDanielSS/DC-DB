@@ -9,17 +9,44 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class BaseScreenController implements Initializable {
 
   @FXML
-  private VBox Cards;
+  private Button backwardButton;
+
+  @FXML
+  private ChoiceBox<String> product_ChoiceBox;
+
+  @FXML
+  private TextField address_TextField;
 
   @FXML
   private Button ToggleSideBar;
 
+  @FXML
+  private Button modalPane;
+
+  @FXML
+  private TextField client_TextField;
+
+  @FXML
+  private Button forwardButton;
+
+  @FXML
+  private TextField quantity_TextField;
+
+  @FXML
+  private Button addNew;
+
+  @FXML
+  private VBox Cards;
+
+  String products[] = {"Areia", "Arenoso", "Cascalho", "Brita", "Areia branca"};
   
   /**
    * @param card : receives a card and adds it to interface
@@ -29,7 +56,6 @@ public class BaseScreenController implements Initializable {
     Cards.setPrefHeight(Cards.getPrefHeight() + 150);
   }
 
-
   /** Creates a new delivery card 
    * @param address : delivery address
    * @param product : product to be delivery
@@ -38,7 +64,7 @@ public class BaseScreenController implements Initializable {
    * @param status : delivery status
    * @return : a new card 
    */
-  private AnchorPane createDeliveryCard(String address, String product, String quantity, String responsible, String status) {
+  private AnchorPane createDeliveryCard(String address, String product, String quantity) {
     AnchorPane deliveryCard = new AnchorPane(); 
 
     try {
@@ -52,8 +78,6 @@ public class BaseScreenController implements Initializable {
       DC.setAddress(address);
       DC.setProduct(product);
       DC.setQuantity(quantity);
-      DC.setResponsible(responsible);
-      DC.setStatus(status);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -61,13 +85,40 @@ public class BaseScreenController implements Initializable {
     return deliveryCard;
   }
 
+  private void clearModal(){
+    address_TextField.setText("");
+    product_ChoiceBox.setValue(null);
+    quantity_TextField.setText("");
+    client_TextField.setText("");
+  }
 
   @Override
-  public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
+  public void initialize(URL location, ResourceBundle resources) {
+    product_ChoiceBox.getItems().setAll(products);
 
-    ToggleSideBar.setOnAction(event -> { // Inicio do controle do botao voltar 
-      addCard(createDeliveryCard("teste", "teste", "teste", "teste", "teste"));
-    }); // Fim do controle do botao voltar
+    ToggleSideBar.setOnAction(event -> { 
 
-  }// Fim do metodo Initialize
+    });
+
+    addNew.setOnAction(event -> { 
+      modalPane.setVisible(true);
+    }); 
+
+    backwardButton.setOnAction(event -> { 
+      modalPane.setVisible(false);
+      clearModal();
+    }); 
+
+    forwardButton.setOnAction(event -> { 
+      String address = address_TextField.getText();
+      String product = product_ChoiceBox.getValue();
+      String quantity = quantity_TextField.getText();
+
+      AnchorPane deliveryCard = createDeliveryCard(address, product, quantity);
+      addCard(deliveryCard);
+
+      modalPane.setVisible(false);
+      clearModal();
+    }); 
+  }
 }
