@@ -20,42 +20,53 @@ public class BaseScreenController implements Initializable {
   @FXML
   private Button ToggleSideBar;
 
+  
   /**
-   * 
+   * @param card : receives a card and adds it to interface
    */
-  private void addCard() {
+  private void addCard(AnchorPane card) {
+    Cards.getChildren().add(card);
+    Cards.setPrefHeight(Cards.getPrefHeight() + 150);
+  }
+
+
+  /** Creates a new delivery card 
+   * @param address : delivery address
+   * @param product : product to be delivery
+   * @param quantity : quantity of the product in meters
+   * @param responsible : person reponsible for the delivery
+   * @param status : delivery status
+   * @return : a new card 
+   */
+  private AnchorPane createDeliveryCard(String address, String product, String quantity, String responsible, String status) {
+    AnchorPane deliveryCard = new AnchorPane(); 
 
     try {
       URL component_url = getClass().getResource("/View/Components/Cards/Delivery.fxml");
-      FXMLLoader card = new FXMLLoader();
-      // AnchorPane the_card = FXMLLoader.load(component_url);
+      FXMLLoader fxmlLoader = new FXMLLoader();
 
+      deliveryCard = fxmlLoader.load(component_url.openStream());
 
-      AnchorPane the_card = card.load(component_url.openStream());
-      
+      DeliveryController DC = (DeliveryController) fxmlLoader.getController();
 
-      DeliveryController DC = (DeliveryController) card.getController();
-      DC.setAddress("UESB");
-      DC.setMaterial("Areia");
-      DC.setQuantity("14");
-      DC.setResponsible("Roger");
-      DC.setStatus("Aguardando");
-
-
-      // card.setController(DC);
-      Cards.getChildren().add(the_card);
-      Cards.setPrefHeight(Cards.getPrefHeight() + 150);
+      DC.setAddress(address);
+      DC.setProduct(product);
+      DC.setQuantity(quantity);
+      DC.setResponsible(responsible);
+      DC.setStatus(status);
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
+
+    return deliveryCard;
   }
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
 
-    ToggleSideBar.setOnAction(event -> { // Inicio do controle do botao voltar
-      addCard();
+    ToggleSideBar.setOnAction(event -> { // Inicio do controle do botao voltar 
+      addCard(createDeliveryCard("teste", "teste", "teste", "teste", "teste"));
     }); // Fim do controle do botao voltar
 
   }// Fim do metodo Initialize

@@ -25,7 +25,7 @@ public class DeliveryController implements Initializable{
     private Label responsible;
 
     @FXML
-    private Label material;
+    private Label product;
 
     @FXML
     private Label status;
@@ -67,10 +67,10 @@ public class DeliveryController implements Initializable{
 
 
     /**
-     * @param material : sets material on card 
+     * @param product : sets product on card 
      */
-    public void setMaterial(String material) {
-        this.material.setText(material);
+    public void setProduct(String product) {
+        this.product.setText(product);
     }
 
 
