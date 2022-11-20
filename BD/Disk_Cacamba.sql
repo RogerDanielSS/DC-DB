@@ -5,7 +5,7 @@ default collate utf8_general_ci;
 use  disk_cacamba;
 
 create table pessoa(
-id_pessoa int not null auto_increment,
+id int not null auto_increment,
 nome varchar(60) not null,
 endereco varchar (60) not null,
 Cliente_id integer not null,
