@@ -3,8 +3,10 @@ package Controll.View.Components.Cards.Delivery;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import BD.DataAccessObject.ConnectToDataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -27,6 +29,9 @@ public class DeliveryController implements Initializable {
 
     @FXML
     private Label status;
+
+    @FXML
+    private Button catchButton;
 
     /**
      * Creates a new card parsing all the attributes
@@ -95,6 +100,10 @@ public class DeliveryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
-
+        catchButton.setOnAction(event -> { 
+            status.setText("null");
+            ConnectToDataBase cdb = new ConnectToDataBase();
+            cdb.SampleConnection();
+        }); 
     }// Fim do metodo Initialize
 }
