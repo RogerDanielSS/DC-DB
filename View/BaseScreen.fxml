@@ -7,13 +7,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.BaseScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.BaseScreenController">
    <children>
-      <VBox layoutX="219.0" layoutY="252.0" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgb(200,200,200);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="219.0" layoutY="252.0" prefHeight="700.0" prefWidth="360.0" style="-fx-background-color: rgb(200,200,200);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-background-color: rgb(219,155,107);">
                <children>
-                  <Button fx:id="ToggleSideBar" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
+                  <Button fx:id="turnOnSideBar" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -25,92 +25,40 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="265.0">
-                     <children>
-                        <Button fx:id="addNew" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);" text="+" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="23.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="705.0" prefWidth="360.0" vbarPolicy="NEVER">
-               <content>
-                  <VBox fx:id="Cards" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="0.0" prefWidth="360.0" spacing="15.0">
-                     <padding>
-                        <Insets top="15.0" />
-                     </padding></VBox>
-               </content>
-            </ScrollPane>
+            <AnchorPane fx:id="base" prefHeight="683.0" prefWidth="360.0" style="-fx-background-color: rgb(220,220,220);" />
          </children>
       </VBox>
-      <Button fx:id="modalPane" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <graphic>
-            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <HBox fx:id="sideBar" prefHeight="740.0" prefWidth="360.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="740.0" prefWidth="190.0" style="-fx-background-color: #fafafa;">
                <children>
-                  <Label layoutX="15.0" layoutY="15.0" text="ID cliente (provisorio)">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="client_TextField" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgb(110, 51, 18); -fx-border-radius: 10;" />
-                  <GridPane layoutX="18.0" layoutY="256.0">
-                     <children>
-                        <TextField fx:id="quantity_TextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="65.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgb(110, 51, 18); -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Material:">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="12.0" text="Quant.:" GridPane.columnIndex="1">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <ChoiceBox fx:id="product_ChoiceBox" prefWidth="150.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: rgb(110, 51, 18);" GridPane.rowIndex="1" />
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <Label text="Endereco:">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="address_TextField" layoutX="15.0" layoutY="108.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10; -fx-border-color: rgb(110, 51, 18);" />
-                  <GridPane>
-                     <children>
-                        <Button fx:id="backwardButton" mnemonicParsing="false" prefWidth="92.0" style="-fx-border-color: rgb(110, 51, 18); -fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10;" text="Voltar" textFill="#6e3312" />
-                        <Button fx:id="forwardButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefWidth="92.0" style="-fx-border-color: rgb(110, 51, 18); -fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10;" text="Concluir" textFill="#6e3312" GridPane.columnIndex="1" />
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </GridPane>
+                  <ImageView fitHeight="83.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/Images/DC.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="deliveryButton" layoutX="34.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);" text="Entregas" textFill="#6e3312">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ProductsButton" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);" text="Materiais" textFill="#6e3312">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
                </children>
                <padding>
-                  <Insets bottom="8.0" left="8.0" right="8.0" top="10.0" />
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </VBox>
-         </graphic>
-      </Button>
+            <Button fx:id="turnOffSideBar" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="740.0" prefWidth="170.0" style="-fx-background-color: rgba(0,0,0,0.2);" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

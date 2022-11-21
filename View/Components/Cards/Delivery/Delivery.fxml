@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="320.0" style="-fx-background-color: rgba(250,0,0,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.Components.Cards.DeliveryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="320.0" style="-fx-background-color: rgba(250,0,0,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controll.View.Components.Cards.Delivery.DeliveryController">
    <children>
       <VBox layoutX="110.0" layoutY="-50.0" prefHeight="150.0" prefWidth="320.0" style="-fx-background-radius: 8px; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -39,9 +39,17 @@
                <children>
                   <Label text="Responsavel:" />
                   <Label text="Status: " GridPane.rowIndex="1" />
-                  <Label fx:id="responsible" text="&gt;&gt;responsavel&lt;&lt;" GridPane.columnIndex="1" />
-                  <Label fx:id="status" text="&gt;&gt;status&lt;&lt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="responsible" text="&gt;&gt;responsavel&lt;&lt;" visible="false" GridPane.columnIndex="1" />
+                  <Label fx:id="status" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="catchButton" minHeight="-Infinity" mnemonicParsing="false" prefWidth="92.0" style="-fx-border-color: rgb(110, 51, 18); -fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10;" text="Pegar" textFill="#6e3312" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </GridPane>
          </children>
          <padding>

@@ -1,4 +1,4 @@
-package Controll.View.Components.Cards;
+package Controll.View.Components.Cards.Delivery;
 
 import java.net.URL;
 import java.util.ResourceBundle;
