@@ -17,7 +17,7 @@ create table fornecedor(
 id int not null,
 id_pessoa int not null,
 primary key (id),
-constraint fk_forPes foreign key (id_pessoa) references pessoa(id_pessoa)
+constraint fk_forPes foreign key (id_pessoa) references pessoa(id)
 )default charset = utf8;
 
 create table fornecedor_produto(
@@ -34,7 +34,7 @@ id int not null,
 cpf integer not null unique,
 id_pessoa int not null,
 primary key (id),
-constraint fk_PesFPes foreign key (id_pessoa) references pessoa(id_pessoa)
+constraint fk_PesFPes foreign key (id_pessoa) references pessoa(id)
 )default charset = utf8;
 
 create table oficina(
@@ -51,14 +51,14 @@ id int not null,
 cnpj integer not null unique,
 id_pessoa int not null,
 primary key (id),
-constraint fk_PesJPes foreign key (id_pessoa) references pessoa(id_pessoa)
+constraint fk_PesJPes foreign key (id_pessoa) references pessoa(id)
 )default charset = utf8;
 
 create table cliente(
 id int not null,
 id_pessoa int not null,
 primary key (id),
-constraint fk_PesCli foreign key (id_pessoa) references pessoa(id_pessoa)
+constraint fk_PesCli foreign key (id_pessoa) references pessoa(ids)
 )default charset = utf8;
 
 create table manutencao(
@@ -79,7 +79,7 @@ modelo varchar (60),
 primary key (id)
 )default charset = utf8;
 
-create table servico(
+create table servico_veiculo(
 id int not null,
 id_veic int not null,
 id_servico int not null,
