@@ -104,7 +104,7 @@ public class DeliveryController implements Initializable {
         catchButton.setOnAction(event -> {
             status.setText("null");
             ConnectToDataBase cdb = new ConnectToDataBase();
-<<<<<<< HEAD
+            
             try {
                 cdb.SampleConnection();
             } catch (SQLException e) {
@@ -112,9 +112,5 @@ public class DeliveryController implements Initializable {
                 e.printStackTrace();
             } new ConnectToDataBase();
         }); 
-=======
-            cdb.SampleConnection();
-        });
->>>>>>> Roger
     }// Fim do metodo Initialize
 }

@@ -25,13 +25,4 @@ public class ConnectToDataBase {
 
     return connection;
   }
-
-  =======}catch(
-
-  SQLException e)
-  {
-      e.printStackTrace();
-    }
 }
-
->>>>>>>Roger}
