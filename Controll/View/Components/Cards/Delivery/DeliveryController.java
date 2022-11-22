@@ -1,9 +1,9 @@
-package Controll.View.Components.Cards.Delivery;
+package controll.View.Components.Cards.Delivery;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import BD.DataAccessObject.ConnectToDataBase;
+import bd.DataAccessObject.ConnectToDataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
