@@ -1,4 +1,4 @@
-package BD.DataAccessObject;
+package bd.DataAccessObject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
