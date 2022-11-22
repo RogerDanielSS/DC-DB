@@ -1,6 +1,7 @@
 package controll.View.Components.Cards.Delivery;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import bd.DataAccessObject.ConnectToDataBase;
@@ -103,7 +104,12 @@ public class DeliveryController implements Initializable {
         catchButton.setOnAction(event -> { 
             status.setText("null");
             ConnectToDataBase cdb = new ConnectToDataBase();
-            cdb.SampleConnection();
+            try {
+                cdb.SampleConnection();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } new ConnectToDataBase();
         }); 
     }// Fim do metodo Initialize
 }
