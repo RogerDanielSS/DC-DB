@@ -1,5 +1,5 @@
 package modelo;
 
-public class Estoque {
+public class Stock {
     
 }
