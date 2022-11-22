@@ -1,5 +1,7 @@
 package bd.DataAccessObject;
 
+import javafx.scene.control.TextField;
+
 public class UserDTO {
     private int id; //chave primaria
     private int cpf;
@@ -9,7 +11,10 @@ public class UserDTO {
 
  
 
-
+    private void btnEnterSystemActionPerformed( java.awt.event.ActionEvent evt){
+        String email, senha;
+        email = TextField.get
+    } 
 
 
 
