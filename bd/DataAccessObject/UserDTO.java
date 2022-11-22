@@ -1,55 +1,62 @@
 package bd.DataAccessObject;
 
-import javafx.scene.control.TextField;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import model.Administrator;
 
 public class UserDTO {
-    private int id; //chave primaria
-    private int cpf;
-    private String senha;
-    private String nome;
-    private String email;
+    private Connection connection;
+    private PreparedStatement pstm;
 
- 
+    public ResultSet authenticationUser(Administrator objADM) {//verify login and password
 
-    private void btnEnterSystemActionPerformed( java.awt.event.ActionEvent evt){
-        String email, senha;
-        email = TextField.get
-    } 
+        connection = new ConnectToDataBase().ConnectionBD();
+
+        try{
+            String sql = "select + from administrador where email = ? and senha = ?";
+            PreparedStatement pstm =  connection.prepareStatement(sql);
+            pstm.setString(1, objADM.getEmail());// 1 is related to the frist ? in the String sq1
+            pstm.setString(2, objADM.getSenha());//2 is the second ? in the string sq1
+
+            ResultSet rs = pstm.executeQuery();
+            return rs; 
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void registration(Administrator objADM){// will be responsible to put the information 
+        //offered by the control to the bd
+        
+        String sql = "insert into administrador (email, cpf, nome, senha) values (?,?,?,?,?)";
+        connection = new ConnectToDataBase().ConnectionBD();
+
+         try{
+            pstm = connection.prepareStatement(sql);
+            pstm.setString(1, objADM.getEmail());
+            pstm.setInt(2, objADM.getCpf());
+            pstm.setString(3, objADM.getNome());
+            pstm.setString(4, objADM.getSenha());
+
+            pstm.execute();
+            pstm.close();
+
+         }catch(SQLException e){
+
+            e.printStackTrace();
+         }
+    }
+    
 
 
 
 
-    //gets e sets
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public int getId() {
-        return id;
-    }
-    public int getCpf() {
-        return cpf;
-    }
-    public String getSenha() {
-        return senha;
-    }
-    public String getNome() {
-        return nome;
-    }
-    public String getEmail() {
-        return email;
-    }
+
 
 
 }

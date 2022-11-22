@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package controll.View.Components.Cards.Delivery;
-=======
-package controll.view.components.cards.delivery;
->>>>>>> main
+package controll.view.Components.Cards.Delivery;
 
 import java.io.IOException;
 import java.net.URL;

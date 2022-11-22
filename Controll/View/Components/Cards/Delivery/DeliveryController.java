@@ -1,10 +1,10 @@
-package controll.view.components.cards.delivery;
+package controll.view.Components.Cards.Delivery;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import bd.dataAccessObject.ConnectToDataBase;
+import bd.DataAccessObject.ConnectToDataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -103,7 +103,7 @@ public class DeliveryController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
         catchButton.setOnAction(event -> {
             status.setText("null");
-            ConnectToDataBase cdb = new ConnectToDataBase();
+            ConnectToDataBase cdb = new bd.DataAccessObject.ConnectToDataBase();
             
             try {
                 cdb.SampleConnection();
