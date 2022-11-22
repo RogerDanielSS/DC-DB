@@ -61,7 +61,7 @@ public class BaseScreenController implements Initializable {
       ToggleSideBar();
     });
 
-    ProductsButton.setOnAction(event -> {
+    deliveryButton.setOnAction(event -> {
       setBasePane();
       ToggleSideBar();
     });

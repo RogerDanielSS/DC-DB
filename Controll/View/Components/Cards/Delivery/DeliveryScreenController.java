@@ -42,46 +42,47 @@ public class DeliveryScreenController implements Initializable {
   @FXML
   private VBox Cards;
 
-  String products[] = {"Areia", "Arenoso", "Cascalho", "Brita", "Areia branca"};
-  
+  String products[] = { "Areia", "Arenoso", "Cascalho", "Brita", "Areia branca" };
+
   /**
    * @param card : receives a card and adds it to interface
    */
   private void addCard(AnchorPane card) {
     Cards.getChildren().add(card);
-    Cards.setPrefHeight(Cards.getPrefHeight() + 150);
   }
 
-  /** Creates a new delivery card 
-   * @param address : delivery address
-   * @param product : product to be delivery
-   * @param quantity : quantity of the product in meters
+  /**
+   * Creates a new delivery card
+   * 
+   * @param address     : delivery address
+   * @param product     : product to be delivery
+   * @param quantity    : quantity of the product in meters
    * @param responsible : person reponsible for the delivery
-   * @param status : delivery status
-   * @return : a new card 
+   * @param status      : delivery status
+   * @return : a new card
    */
-  private AnchorPane createDeliveryCard(String address, String product, String quantity) {
-    AnchorPane deliveryCard = new AnchorPane(); 
+  private AnchorPane createAttendanceCard() {
+    AnchorPane attendanceCard = new AnchorPane();
 
     try {
-      URL component_url = getClass().getResource("/View/Components/Cards/Delivery/Delivery.fxml");
+      URL component_url = getClass().getResource("/View/Components/Cards/Delivery/Attendance.fxml");
       FXMLLoader fxmlLoader = new FXMLLoader();
 
-      deliveryCard = fxmlLoader.load(component_url.openStream());
+      attendanceCard = fxmlLoader.load(component_url.openStream());
 
-      DeliveryController DC = (DeliveryController) fxmlLoader.getController();
+      // DeliveryController DC = (DeliveryController) fxmlLoader.getController();
 
-      DC.setAddress(address);
-      DC.setProduct(product);
-      DC.setQuantity(quantity);
+      // DC.setAddress(address);
+      // DC.setProduct(product);
+      // DC.setQuantity(quantity);
     } catch (IOException e) {
       e.printStackTrace();
     }
 
-    return deliveryCard;
+    return attendanceCard;
   }
 
-  private void clearModal(){
+  private void clearModal() {
     address_TextField.setText("");
     product_ChoiceBox.setValue(null);
     quantity_TextField.setText("");
@@ -92,25 +93,26 @@ public class DeliveryScreenController implements Initializable {
   public void initialize(URL location, ResourceBundle resources) {
     product_ChoiceBox.getItems().setAll(products);
 
-    addNew.setOnAction(event -> { 
-      modalPane.setVisible(true);
-    }); 
+    addNew.setOnAction(event -> {
+      AnchorPane attendanceCard = createAttendanceCard();
+      addCard(attendanceCard);
+    });
 
-    backwardButton.setOnAction(event -> { 
+    backwardButton.setOnAction(event -> {
       modalPane.setVisible(false);
       clearModal();
-    }); 
+    });
 
-    forwardButton.setOnAction(event -> { 
-      String address = address_TextField.getText();
-      String product = product_ChoiceBox.getValue();
-      String quantity = quantity_TextField.getText();
+    forwardButton.setOnAction(event -> {
+      // String address = address_TextField.getText();
+      // String product = product_ChoiceBox.getValue();
+      // String quantity = quantity_TextField.getText();
 
-      AnchorPane deliveryCard = createDeliveryCard(address, product, quantity);
+      AnchorPane deliveryCard = new AnchorPane();
       addCard(deliveryCard);
 
       modalPane.setVisible(false);
       clearModal();
-    }); 
+    });
   }
 }

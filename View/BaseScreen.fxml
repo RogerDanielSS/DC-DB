@@ -34,7 +34,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <AnchorPane fx:id="base" prefHeight="683.0" prefWidth="360.0" style="-fx-background-color: rgb(220,220,220);" />
+            <AnchorPane fx:id="base" prefHeight="683.0" prefWidth="360.0" style="-fx-background-color: white;" />
          </children>
       </VBox>
       <HBox fx:id="sideBar" prefHeight="740.0" prefWidth="360.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
