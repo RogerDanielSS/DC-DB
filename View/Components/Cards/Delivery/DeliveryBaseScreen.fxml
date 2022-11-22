@@ -37,7 +37,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="modalPane" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Button fx:id="modalPane" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="740.0" prefWidth="360.0" style="-fx-background-color: rgba(0,0,0,0.3);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <graphic>
             <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-background-radius: 8;">
                <children>
@@ -47,36 +47,6 @@
                      </padding>
                   </Label>
                   <TextField fx:id="client_TextField" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgb(110, 51, 18); -fx-border-radius: 10;" />
-                  <GridPane layoutX="18.0" layoutY="256.0">
-                     <children>
-                        <TextField fx:id="quantity_TextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="65.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgb(110, 51, 18); -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Material:">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="12.0" text="Quant.:" GridPane.columnIndex="1">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <ChoiceBox fx:id="product_ChoiceBox" prefWidth="150.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: rgb(110, 51, 18);" GridPane.rowIndex="1" />
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <Label text="Endereco:">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="address_TextField" layoutX="15.0" layoutY="108.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10; -fx-border-color: rgb(110, 51, 18);" />
                   <GridPane>
                      <children>
                         <Button fx:id="backwardButton" mnemonicParsing="false" prefWidth="92.0" style="-fx-border-color: rgb(110, 51, 18); -fx-background-color: rgba(0,0,0,0); -fx-border-radius: 10;" text="Voltar" textFill="#6e3312" />

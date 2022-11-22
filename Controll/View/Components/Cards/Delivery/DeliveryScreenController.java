@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -17,12 +16,6 @@ public class DeliveryScreenController implements Initializable {
 
   @FXML
   private Button backwardButton;
-
-  @FXML
-  private ChoiceBox<String> product_ChoiceBox;
-
-  @FXML
-  private TextField address_TextField;
 
   @FXML
   private Button modalPane;
@@ -34,15 +27,10 @@ public class DeliveryScreenController implements Initializable {
   private Button forwardButton;
 
   @FXML
-  private TextField quantity_TextField;
-
-  @FXML
   private Button addNew;
 
   @FXML
   private VBox Cards;
-
-  String products[] = { "Areia", "Arenoso", "Cascalho", "Brita", "Areia branca" };
 
   /**
    * @param card : receives a card and adds it to interface
@@ -61,7 +49,7 @@ public class DeliveryScreenController implements Initializable {
    * @param status      : delivery status
    * @return : a new card
    */
-  private AnchorPane createAttendanceCard() {
+  private AnchorPane createAttendanceCard(String client) {
     AnchorPane attendanceCard = new AnchorPane();
 
     try {
@@ -70,11 +58,10 @@ public class DeliveryScreenController implements Initializable {
 
       attendanceCard = fxmlLoader.load(component_url.openStream());
 
-      // DeliveryController DC = (DeliveryController) fxmlLoader.getController();
+      AttendanceController AC = (AttendanceController) fxmlLoader.getController();
 
-      // DC.setAddress(address);
-      // DC.setProduct(product);
-      // DC.setQuantity(quantity);
+      AC.setClient(client);
+
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -83,35 +70,33 @@ public class DeliveryScreenController implements Initializable {
   }
 
   private void clearModal() {
-    address_TextField.setText("");
-    product_ChoiceBox.setValue(null);
-    quantity_TextField.setText("");
     client_TextField.setText("");
+  }
+
+  private void toggleModal(){
+    modalPane.setVisible(!modalPane.isVisible());
   }
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    product_ChoiceBox.getItems().setAll(products);
 
     addNew.setOnAction(event -> {
-      AnchorPane attendanceCard = createAttendanceCard();
-      addCard(attendanceCard);
+      toggleModal();
     });
 
     backwardButton.setOnAction(event -> {
-      modalPane.setVisible(false);
+      toggleModal();
       clearModal();
     });
 
     forwardButton.setOnAction(event -> {
-      // String address = address_TextField.getText();
-      // String product = product_ChoiceBox.getValue();
-      // String quantity = quantity_TextField.getText();
 
-      AnchorPane deliveryCard = new AnchorPane();
-      addCard(deliveryCard);
+      String client = client_TextField.getText();
+      AnchorPane attendanceCard = createAttendanceCard(client);
 
-      modalPane.setVisible(false);
+      addCard(attendanceCard);
+
+      toggleModal();
       clearModal();
     });
   }

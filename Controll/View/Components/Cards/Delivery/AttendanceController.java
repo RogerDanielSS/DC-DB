@@ -8,10 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class AttendanceController implements Initializable {
+
+  @FXML
+  private Label client;
 
   @FXML
   private Button addNew;
@@ -39,7 +43,7 @@ public class AttendanceController implements Initializable {
    * @param status      : delivery status
    * @return : a new card
    */
-  private AnchorPane createDeliveryCard(String address, String product, String quantity) {
+  private AnchorPane createDeliveryCard() {
     AnchorPane deliveryCard = new AnchorPane();
 
     try {
@@ -49,10 +53,6 @@ public class AttendanceController implements Initializable {
       deliveryCard = fxmlLoader.load(component_url.openStream());
 
       DeliveryController DC = (DeliveryController) fxmlLoader.getController();
-
-      DC.setAddress(address);
-      DC.setProduct(product);
-      DC.setQuantity(quantity);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -60,11 +60,15 @@ public class AttendanceController implements Initializable {
     return deliveryCard;
   }
 
+  public void setClient(String client){
+    this.client.setText(client);
+  }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
     addNew.setOnAction(event -> { 
-      AnchorPane sampleCard = createDeliveryCard("sample", "sample", "sample");
+      AnchorPane sampleCard = createDeliveryCard();
       addCard(sampleCard);
     }); 
   }
