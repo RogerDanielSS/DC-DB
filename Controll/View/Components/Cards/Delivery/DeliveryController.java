@@ -1,9 +1,9 @@
-package controll.View.Components.Cards.Delivery;
+package controll.view.components.cards.delivery;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import bd.DataAccessObject.ConnectToDataBase;
+import bd.dataAccessObject.ConnectToDataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -100,10 +100,10 @@ public class DeliveryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
-        catchButton.setOnAction(event -> { 
+        catchButton.setOnAction(event -> {
             status.setText("null");
             ConnectToDataBase cdb = new ConnectToDataBase();
             cdb.SampleConnection();
-        }); 
+        });
     }// Fim do metodo Initialize
 }
