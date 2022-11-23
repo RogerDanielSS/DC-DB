@@ -1,4 +1,4 @@
-package controll.view.Components.Cards.Delivery;
+package controll.view.components.cards.delivery;
 
 import java.net.URL;
 import java.sql.SQLException;

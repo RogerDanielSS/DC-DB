@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import model.Administrator;
 
-public class UserDTO {
+public class UserADMDTO {
     private Connection connection;
     private PreparedStatement pstm;
     private ResultSet rs;
