@@ -1,4 +1,4 @@
-package controll.view.components.cards.delivery;
+package controll.view.Components.Cards.Delivery;
 
 import java.io.IOException;
 import java.net.URL;
