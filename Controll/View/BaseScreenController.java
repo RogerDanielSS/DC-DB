@@ -24,7 +24,7 @@ public class BaseScreenController implements Initializable {
   private VBox Cards;
 
   @FXML
-  private Button ProductsButton;
+  private Button fuelSupplyButton;
   
   @FXML
   private HBox sideBar;    
@@ -36,7 +36,7 @@ public class BaseScreenController implements Initializable {
     sideBar.setVisible(!sideBar.isVisible());
   }
 
-  private void setBasePane() {
+  private void setDeliveryPane() {
     try {
       URL component_url = getClass().getResource("/View/Components/Cards/Delivery/DeliveryBaseScreen.fxml");
       AnchorPane pane = (AnchorPane) FXMLLoader.load(component_url);
@@ -47,7 +47,16 @@ public class BaseScreenController implements Initializable {
     }
   }
 
+  private void setFuelSupplyPane() {
+    try {
+      URL component_url = getClass().getResource("/view/components/cards/maintenance/MaintenanceBaseScreen.fxml");
+      AnchorPane pane = (AnchorPane) FXMLLoader.load(component_url);
+      base.getChildren().setAll(pane);
 
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
 
   @Override
@@ -62,7 +71,12 @@ public class BaseScreenController implements Initializable {
     });
 
     deliveryButton.setOnAction(event -> {
-      setBasePane();
+      setDeliveryPane();
+      ToggleSideBar();
+    });
+
+    fuelSupplyButton.setOnAction(event -> {
+      setFuelSupplyPane();
       ToggleSideBar();
     });
 

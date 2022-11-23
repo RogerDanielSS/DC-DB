@@ -74,8 +74,10 @@ valor float,
 descricao varchar (300),
 data_M date,
 id_veiculo int not null,
+id_oficina int not null,
 primary key (id),
-constraint fk_manut foreign key (id_veiculo) references veiculo(id)
+constraint fk_manut foreign key (id_veiculo) references veiculo(id),
+constraint fk_manut foreign key (id_oficina) references oficina(id)
 )default charset = utf8;
 
 create table veiculo(
