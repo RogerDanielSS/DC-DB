@@ -7,7 +7,7 @@ public class Administrator {
     private String nome;
     private String email;
 
-    Administrator(){}
+    public Administrator(){}
 
 
 

@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Administrator;
 
 public class UserDTO {
     private Connection connection;
     private PreparedStatement pstm;
+    private ResultSet rs;
+    private ArrayList<Administrator> lista = new ArrayList<>();
 
     public ResultSet authenticationUser(Administrator objADM) {//verify login and password
 
@@ -21,7 +24,7 @@ public class UserDTO {
             pstm.setString(1, objADM.getEmail());// 1 is related to the frist ? in the String sq1
             pstm.setString(2, objADM.getSenha());//2 is the second ? in the string sq1
 
-            ResultSet rs = pstm.executeQuery();
+            rs = pstm.executeQuery();
             return rs; 
 
         }catch(SQLException e){
@@ -51,14 +54,32 @@ public class UserDTO {
             e.printStackTrace();
          }
     }
-    
 
+    public ArrayList<Administrator> ListarADM(){//resultSet run the data table of the bd
+        
+        String sql = "select * from administrador";
+        try{
+            pstm = connection.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            //we don't know the ammount of information present in the bank
 
+            while(rs.next()){
+                Administrator objADM = new Administrator();
+                objADM.setNome(rs.getString("nome"));
+                objADM.setId(rs.getInt("id"));
+                objADM.setCpf(rs.getInt("cpf"));
+                objADM.setEmail(rs.getString("email"));
+                //objADM.setSenha(rs.getString("senha"));
 
+                lista.add(objADM);
+            }
 
-
-
-
+            return lista;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    } 
 }
 /*create table administrador(
  id integer not null auto_increment,
