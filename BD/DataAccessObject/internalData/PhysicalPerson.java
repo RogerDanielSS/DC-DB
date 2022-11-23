@@ -1,25 +1,23 @@
 package bd.dataAccessObject.internalData;
 
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bd.dataAccessObject.ConnectToDataBase;
-import model.Cliente;
 import model.Pessoa;
 
-public class ClientDTO {
+public class PhysicalPerson {
     Connection connection;
-    PreparedStatement preparedStatement;
 
-    public ArrayList<Cliente> genericSearchClient(String field, String searchKey) {
+    public ArrayList<Pessoa> genericSearchPessoa(String field, String searchKey) {
         connection = new ConnectToDataBase().ConnectionBD();
 
         try {
-            String sql_commandLine = "select * from cliente";
+            String sql_commandLine = "select * from pessoa";
 
             if (field != "" && searchKey != "")
                 sql_commandLine += " where " + field + " = '" + searchKey + "'";
@@ -28,30 +26,30 @@ public class ClientDTO {
 
             ResultSet searchResult = genericSearch.executeQuery();
 
-            return getClientsList(searchResult);
+            //return getClientsList(searchResult);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return new ArrayList<Cliente>();
+        return new ArrayList<Pessoa>();
     }
 
-    private ArrayList<Cliente> getClientsList(ResultSet searchResult) throws SQLException {
-    
-        ArrayList<Cliente> clients = new ArrayList<>();
+    public ArrayList<Pessoa> getPessoaList(ResultSet searchResult) throws SQLException{
+
+        ArrayList<Pessoa> persons = new ArrayList<>();
     
         while (searchResult.next()) {
           String id = searchResult.getString("id");
-          String id_pessoa = searchResult.getString("id_pessoa");
+          String nome = searchResult.getString("nome");
+          String endereco = searchResult.getString("endereco");
     
-          //Pessoa pessoa = new Pessoa(id_pessoa, "", "");
+          //Pessoa person = new Pessoa(id_pessoa, "", "");
           //Cliente client = new Cliente(id, pessoa);
 
-          //clients.add(client);
+          //persons.add(client);
         } 
     
-        return clients;
-        
-      }
+        return persons;
+    }
 }

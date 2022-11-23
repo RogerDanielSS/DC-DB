@@ -1,13 +1,12 @@
 package model;
 
 public class PessoaJuridica extends Pessoa {
-
     private int id;
     private int cnpj;
-    private int id_pessoa;
-    
-    public PessoaJuridica(){
-        this.id_pessoa = getId_Pessoa();
+
+    public PessoaJuridica(String id_pessoa, String nome, String endereco, String cnpj) {
+        super(id_pessoa, nome, endereco);
+        this.cnpj = Integer.parseInt(cnpj);
     }
 
     public int getId() {
@@ -25,6 +24,4 @@ public class PessoaJuridica extends Pessoa {
     public void setCpf(int cnpj) {
         this.cnpj = cnpj;
     }
-    
-        
 }

@@ -1,12 +1,12 @@
 package model;
 
-public class PessoaFisica {
+public class PessoaFisica extends Pessoa {
     private int id;
     private int cpf;
-    private int id_pessoa;
-    
-    public PessoaFisica(){
-        this.id_pessoa = getId_Pessoa();
+
+    public PessoaFisica(String id_pessoa, String nome, String endereco, String cpf) {
+        super(id_pessoa, nome, endereco);
+        this.cpf = Integer.parseInt(cpf);
     }
 
     public int getId() {
