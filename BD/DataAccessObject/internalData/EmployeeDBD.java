@@ -1,4 +1,4 @@
-package bd.DataAccessObject;
+package bd.dataAccessObject.internalData;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
