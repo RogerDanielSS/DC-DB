@@ -36,7 +36,6 @@ public class VehicleAttendance implements Initializable{
           FXMLLoader fxmlLoader = new FXMLLoader();
     
           deliveryCard = fxmlLoader.load(component_url.openStream());
-    
           VehicleDeliveryController VDC = (VehicleDeliveryController) fxmlLoader.getController();
         } catch (IOException e) {
           e.printStackTrace();
