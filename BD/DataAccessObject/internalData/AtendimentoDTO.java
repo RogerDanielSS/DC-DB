@@ -55,6 +55,23 @@ public class AtendimentoDTO {
         return attendants;
     }
 
+    public void insertAtendimento(String field, String searchKey) {
+        connection = new ConnectToDataBase().ConnectionBD();
+
+        try {
+            String sql_commandLine = "insert into atendimento (id_cliente, id_funcionario, endereco) values (1, 1, 'Mordor');";
+
+            if (field != "" && searchKey != "")
+                sql_commandLine += " where " + field + " = '" + searchKey + "'";
+
+            PreparedStatement genericSearch = connection.prepareStatement(sql_commandLine);
+
+            genericSearch.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

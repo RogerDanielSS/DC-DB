@@ -7,8 +7,8 @@ public class Atendimento {
     private Cliente cliente;
 
     
-    public Atendimento(String id2, Employeers funcionario, String endereco, Cliente cliente) {
-        this.id = id;
+    public Atendimento(String id, Employeers funcionario, String endereco, Cliente cliente) {
+        this.id = Integer.parseInt(id);
         this.funcionario = funcionario;
         this.endereco = endereco;
         this.cliente = cliente;
