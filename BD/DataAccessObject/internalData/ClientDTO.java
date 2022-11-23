@@ -45,10 +45,10 @@ public class ClientDTO {
           String id = searchResult.getString("id");
           String id_pessoa = searchResult.getString("id_pessoa");
     
-          //Pessoa pessoa = new Pessoa(id_pessoa, "", "");
-          //Cliente client = new Cliente(id, pessoa);
+          Pessoa pessoa = new Pessoa(id_pessoa, "", "");
+          Cliente client = new Cliente(id, pessoa);
 
-          //clients.add(client);
+          clients.add(client);
         } 
     
         return clients;

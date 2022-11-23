@@ -26,7 +26,7 @@ public class PersonDTO {
 
             ResultSet searchResult = genericSearch.executeQuery();
 
-            // return getClientsList(searchResult);
+            return getPersonList(searchResult);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,51 +41,17 @@ public class PersonDTO {
 
         while (searchResult.next()) {
             String id = searchResult.getString("id");
+            PhysicalPersonDTO physicalPersonDTO =  new PhysicalPersonDTO();
+            LegalPersonDTO legalPersonDTO = new LegalPersonDTO();
 
-            Pessoa physicalPerson = getPhysicalsPerson(id);
+            ArrayList<Pessoa> physicalPersons = physicalPersonDTO.getPhysicalPersons(id);
+            ArrayList<Pessoa> legalPersons = legalPersonDTO.getLegalPersons(id);
 
-            persons.add(physicalPerson);
+            persons.addAll(physicalPersons);
+            persons.addAll(legalPersons);
         }
 
         return persons;
-    }
-
-    private ArrayList<Pessoa> getPhysicalsPerson(String id_pessoa) {
-        connection = new ConnectToDataBase().ConnectionBD();
-
-        try {
-            String sql_commandLine = "select * from pessoa, pessoa_fisica where id = id_pessoa and id_pessoa = "
-                    + id_pessoa;
-
-            PreparedStatement genericSearch = connection.prepareStatement(sql_commandLine);
-
-            ResultSet searchResult = genericSearch.executeQuery();
-
-            return getPhysicalPersonList(searchResult);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return new ArrayList<Pessoa>();
-    }
-
-    public ArrayList<Pessoa> getPhysicalPersonList(ResultSet searchResult) throws SQLException {
-
-        ArrayList<Pessoa> physicalPersons = new ArrayList<>();
-
-        while (searchResult.next()) {
-            String id = searchResult.getString("pessoa.id");
-            String nome = searchResult.getString("pessoa.nome");
-            String endereco = searchResult.getString("pessoa.endereco");
-            String cpf = searchResult.getString("pessoa_fisica.cpf");
-
-            PessoaFisica physicalPerson = new PessoaFisica(id, nome, endereco, cpf);
-
-            physicalPersons.add(physicalPerson);
-        }
-
-        return physicalPersons;
     }
 
     public void registration(Pessoa objPessoa) {// will be responsible to put the information
