@@ -1,15 +1,15 @@
 package model;
 
-public class Funcionarios {
+public class Employeers {
     int id;//chave primaria
     String nome;
     String senha;
     int cpf;
     int token;
 
-    Funcionarios(){}
+    Employeers(){}
 
-    Funcionarios(int id, String nome, String senha, int cpf, int token){
+    public Employeers(int id, String nome, String senha, int cpf, int token){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
@@ -21,15 +21,6 @@ public class Funcionarios {
         String n = "";
         return n;
     }
-
-
-
-
-
-
-
-
-
 
     //gets e sets
     public void setId(int id) {
