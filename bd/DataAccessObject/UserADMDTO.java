@@ -36,7 +36,7 @@ public class UserADMDTO {
     public void registration(Administrator objADM){// will be responsible to put the information 
         //offered by the control to the bd
         
-        String sql = "insert into administrador (email, cpf, nome, senha) values (?,?,?,?,?)";
+        String sql = "insert into administrador (email, cpf, nome, senha) values (?,?,?,?)";
         connection = new ConnectToDataBase().ConnectionBD();
 
          try{
