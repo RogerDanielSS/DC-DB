@@ -12,7 +12,7 @@
    <children>
       <VBox alignment="BOTTOM_CENTER" layoutX="219.0" layoutY="252.0" style="-fx-background-color: rgb(220,220,220); -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="&gt;&gt;Cliente&lt;&lt;" />
+            <Label fx:id="client" text="&gt;&gt;Cliente&lt;&lt;" />
             <VBox fx:id="Cards" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="360.0" spacing="15.0" style="-fx-background-color: rgba(0,0,0, 0);">
                <padding>
                   <Insets top="15.0" />
