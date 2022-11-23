@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bd.dataAccessObject.internalData.ClientDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import model.Cliente;
+import model.Pessoa;
 
 public class DeliveryScreenController implements Initializable {
 
@@ -60,13 +63,21 @@ public class DeliveryScreenController implements Initializable {
 
       AttendanceController AC = (AttendanceController) fxmlLoader.getController();
 
-      AC.setClient(client);
+      AC.setClient(getClientName_byId(client));
 
     } catch (IOException e) {
       e.printStackTrace();
     }
 
     return attendanceCard;
+  }
+
+  private String getClientName_byId(String id){
+    ClientDTO clientDTO = new ClientDTO();
+    Cliente client = clientDTO.genericSearchClient("id", id).get(0);
+    Pessoa client_person = client.getPessoa();
+
+    return client_person.getNome();
   }
 
   private void clearModal() {

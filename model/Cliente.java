@@ -12,4 +12,8 @@ public class Cliente {
   public int getId() {
     return id;
   }
+
+  public Pessoa getPessoa(){
+    return this.pessoa;
+  }
 }

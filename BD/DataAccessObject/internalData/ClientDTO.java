@@ -45,7 +45,7 @@ public class ClientDTO {
           String id = searchResult.getString("id");
           String id_pessoa = searchResult.getString("id_pessoa");
     
-          Pessoa pessoa = new Pessoa(id_pessoa, "", "");
+          Pessoa pessoa = (new PersonDTO()).genericSearchPessoa("id", id_pessoa).get(0);
           Cliente client = new Cliente(id, pessoa);
 
           clients.add(client);
