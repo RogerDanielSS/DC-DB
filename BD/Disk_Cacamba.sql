@@ -80,6 +80,7 @@ constraint fk_manut foreign key (id_veiculo) references veiculo(id)
 
 create table veiculo(
 id int not null auto_increment,
+placa varchar(7);
 carga_max integer,
 marca varchar (60),
 modelo varchar (60),
