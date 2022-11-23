@@ -2,18 +2,18 @@ package model;
 
 public class PessoaFisica extends Pessoa {
     private int id;
-    private int cpf;
+    private long cpf;
 
     public PessoaFisica(String id_pessoa, String nome, String endereco, String cpf) {
         super(id_pessoa, nome, endereco);
-        this.cpf = Integer.parseInt(cpf);
+        this.cpf = Long.parseLong(cpf);
     }
 
     public int getId() {
         return id;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
