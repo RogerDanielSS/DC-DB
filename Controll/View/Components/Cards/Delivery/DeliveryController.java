@@ -4,12 +4,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import bd.dataAccessObject.ConnectToDataBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class DeliveryController implements Initializable {
@@ -18,21 +17,22 @@ public class DeliveryController implements Initializable {
     private AnchorPane Card;
 
     @FXML
-    private TextField quantity, address, product;
+    private Label quantity;
+
+    @FXML
+    private Label address;
 
     @FXML
     private Label responsible;
+
+    @FXML
+    private Label product;
 
     @FXML
     private Label status;
 
     @FXML
     private Button catchButton;
-
-    @FXML
-    private ChoiceBox<String> product_ChoiceBox;
-
-    String products[] = { "Areia", "Arenoso", "Cascalho", "Brita", "Areia branca" };
 
     /**
      * Creates a new card parsing all the attributes
@@ -100,12 +100,17 @@ public class DeliveryController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        product_ChoiceBox.getItems().setAll(products);
-
+    public void initialize(URL location, ResourceBundle resources) { // Inicio do metodo Initialize
         catchButton.setOnAction(event -> {
             status.setText("null");
-
-        });
-    }
+            ConnectToDataBase cdb = new bd.dataAccessObject.ConnectToDataBase();
+            
+            try {
+                cdb.SampleConnection();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } new ConnectToDataBase();
+        }); 
+    }// Fim do metodo Initialize
 }
