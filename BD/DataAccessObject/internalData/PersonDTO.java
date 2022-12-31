@@ -1,4 +1,4 @@
-package bd.dataAccessObject.internalData;
+package BD.DataAccessObject.internalData;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import bd.dataAccessObject.ConnectToDataBase;
+import BD.DataAccessObject.ConnectToDataBase;
 import model.Pessoa;
 import model.PessoaFisica;
 

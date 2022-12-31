@@ -1,10 +1,10 @@
-package controll.view.components.cards.maintenance;
+package Controll.View.Components.Cards.maintenance;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import bd.dataAccessObject.internalData.ClientDTO;
+import BD.DataAccessObject.internalData.ClientDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

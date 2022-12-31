@@ -1,10 +1,8 @@
-package bd.dataAccessObject;
+package BD.DataAccessObject;
 
 import java.util.ArrayList;
 
-import bd.dataAccessObject.internalData.ClientDTO;
-import bd.dataAccessObject.internalData.PersonDTO;
-import model.Cliente;
+import BD.DataAccessObject.internalData.PersonDTO;
 import model.Pessoa;
 
 public class test {
